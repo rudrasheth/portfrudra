@@ -1090,6 +1090,10 @@ img {
     background: linear-gradient(135deg, #84cc16, #22c55e);
 }
 
+.inventory-bg {
+    background: linear-gradient(135deg, #7c3aed, #db2777);
+}
+
 .project-icon {
     font-size: 4rem;
 }
