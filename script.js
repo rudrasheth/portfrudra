@@ -1,7 +1,3 @@
-// ========================================
-// PORTFOLIO WEBSITE JAVASCRIPT
-// ========================================
-
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initSmoothScroll();
@@ -11,391 +7,172 @@ document.addEventListener('DOMContentLoaded', () => {
     initMouseGlow();
     initParticles();
     initHeroTilt();
+    initStatCounters();
 });
 
-// ========================================
-// NAVIGATION
-// ========================================
 function initNavigation() {
     const navbar = document.getElementById('navbar');
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section[id]');
-
-    // Navbar scroll effect
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.padding = '0.75rem 2rem';
-            navbar.style.background = 'rgba(10, 10, 15, 0.95)';
-        } else {
-            navbar.style.padding = '1rem 2rem';
-            navbar.style.background = 'rgba(10, 10, 15, 0.8)';
-        }
-
-        // Update active nav link based on scroll position
+        navbar.style.padding = window.scrollY > 50 ? '0.6rem 2rem' : '1rem 2rem';
+        navbar.style.background = window.scrollY > 50 ? 'rgba(6,6,11,0.95)' : 'rgba(6,6,11,0.85)';
         let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            if (window.scrollY >= sectionTop) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
+        sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+        navLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === `#${current}`); });
     });
 }
 
-// ========================================
-// SMOOTH SCROLL
-// ========================================
 function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function (e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const target = document.querySelector(targetId);
-
-            if (target) {
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-
-                // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobileMenu');
-                if (mobileMenu && mobileMenu.classList.contains('active')) {
-                    mobileMenu.classList.remove('active');
-                }
+            const t = document.querySelector(this.getAttribute('href'));
+            if (t) {
+                window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+                const m = document.getElementById('mobileMenu');
+                if (m && m.classList.contains('active')) m.classList.remove('active');
             }
         });
     });
 }
 
-// ========================================
-// SCROLL ANIMATIONS
-// ========================================
 function initScrollAnimations() {
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll(
-        '.section-header, .about-content, .project-card, .timeline-item, .contact-card, .skills-grid'
-    );
-
-    animateElements.forEach(el => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('animate-in'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.section-header,.about-content,.project-card,.timeline-item,.contact-card,.skill-card-modern,.edu-card,.cert-card,.about-education').forEach((el, i) => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.style.transition = `opacity 0.6s ease ${i * 0.05}s, transform 0.6s ease ${i * 0.05}s`;
         observer.observe(el);
     });
-
-    // Add CSS for animated state
-    const style = document.createElement('style');
-    style.textContent = `
-        .animate-in {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
-    document.head.appendChild(style);
+    const s = document.createElement('style');
+    s.textContent = '.animate-in{opacity:1!important;transform:translateY(0)!important}';
+    document.head.appendChild(s);
 }
 
-// ========================================
-// MOBILE MENU
-// ========================================
 function initMobileMenu() {
-    const menuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    if (menuBtn) {
-        menuBtn.addEventListener('click', () => {
-            menuBtn.classList.toggle('active');
-
-            // Create mobile menu if doesn't exist
-            if (!mobileMenu) {
-                createMobileMenu();
-            } else {
-                mobileMenu.classList.toggle('active');
-            }
-        });
-    }
+    const btn = document.getElementById('mobileMenuBtn');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+        btn.classList.toggle('active');
+        let m = document.getElementById('mobileMenu');
+        if (!m) {
+            m = document.createElement('div');
+            m.id = 'mobileMenu';
+            m.className = 'mobile-menu';
+            m.innerHTML = `<div class="mobile-menu-content">
+                <a href="#home" class="mobile-link">Home</a>
+                <a href="#about" class="mobile-link">About</a>
+                <a href="#skills" class="mobile-link">Skills</a>
+                <a href="#projects" class="mobile-link">Projects</a>
+                <a href="#experience" class="mobile-link">Experience</a>
+                <a href="#contact" class="mobile-link">Contact</a>
+            </div>`;
+            const s = document.createElement('style');
+            s.textContent = `.mobile-menu{position:fixed;top:60px;left:0;right:0;background:rgba(6,6,11,.98);backdrop-filter:blur(20px);padding:2rem;transform:translateY(-100%);opacity:0;transition:all .3s ease;z-index:999;border-bottom:1px solid rgba(255,255,255,.07)}.mobile-menu.active{transform:translateY(0);opacity:1}.mobile-menu-content{display:flex;flex-direction:column;gap:1.5rem}.mobile-link{font-size:1.2rem;color:#a0a0b0;transition:color .2s}.mobile-link:hover{color:#00ff88}.mobile-menu-btn.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.mobile-menu-btn.active span:nth-child(2){opacity:0}.mobile-menu-btn.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}`;
+            document.head.appendChild(s);
+            document.body.appendChild(m);
+        }
+        setTimeout(() => m.classList.toggle('active'), 10);
+    });
 }
 
-function createMobileMenu() {
-    const menu = document.createElement('div');
-    menu.id = 'mobileMenu';
-    menu.className = 'mobile-menu active';
-    menu.innerHTML = `
-        <div class="mobile-menu-content">
-            <a href="#home" class="mobile-link">Home</a>
-            <a href="#about" class="mobile-link">About</a>
-            <a href="#projects" class="mobile-link">Projects</a>
-            <a href="#experience" class="mobile-link">Experience</a>
-            <a href="#contact" class="mobile-link">Contact</a>
-        </div>
-    `;
-
-    // Add mobile menu styles
-    const style = document.createElement('style');
-    style.textContent = `
-        .mobile-menu {
-            position: fixed;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background: rgba(10, 10, 15, 0.98);
-            backdrop-filter: blur(20px);
-            padding: 2rem;
-            transform: translateY(-100%);
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 999;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .mobile-menu.active {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        .mobile-menu-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        .mobile-link {
-            font-size: 1.2rem;
-            color: #a0a0b0;
-            transition: color 0.2s ease;
-        }
-        .mobile-link:hover {
-            color: #00ff88;
-        }
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-    `;
-    document.head.appendChild(style);
-    document.body.appendChild(menu);
-}
-
-// ========================================
-// TYPING EFFECT
-// ========================================
 function initTypingEffect() {
-    const subtitle = document.querySelector('.hero-subtitle');
-    if (!subtitle) return;
-
-    const roles = [
-        'Full-Stack Developer',
-        'Problem Solver',
-        'MERN Stack Developer',
-        'Quick Learner'
-    ];
-
-    let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 100;
-
+    const el = document.querySelector('.hero-subtitle');
+    if (!el) return;
+    const roles = ['AI/ML Engineer', 'Full-Stack Developer', 'GenAI Builder', 'Problem Solver', 'LLM Specialist'];
+    let ri = 0, ci = 0, del = false, speed = 100;
     function type() {
-        const currentRole = roles[roleIndex];
-
-        if (isDeleting) {
-            subtitle.textContent = currentRole.substring(0, charIndex - 1);
-            charIndex--;
-            typingSpeed = 50;
-        } else {
-            subtitle.textContent = currentRole.substring(0, charIndex + 1);
-            charIndex++;
-            typingSpeed = 100;
-        }
-
-        if (!isDeleting && charIndex === currentRole.length) {
-            isDeleting = true;
-            typingSpeed = 2000; // Pause at end
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-            typingSpeed = 500; // Pause before new word
-        }
-
-        setTimeout(type, typingSpeed);
+        const r = roles[ri];
+        if (del) { el.textContent = r.substring(0, --ci); speed = 40; }
+        else { el.textContent = r.substring(0, ++ci); speed = 80; }
+        if (!del && ci === r.length) { del = true; speed = 2000; }
+        else if (del && ci === 0) { del = false; ri = (ri + 1) % roles.length; speed = 400; }
+        setTimeout(type, speed);
     }
-
-    // Start typing effect after a delay
     setTimeout(type, 1000);
 }
 
-// ========================================
-// FLOATING ICONS ENHANCED ANIMATION
-// ========================================
-document.querySelectorAll('.float-icon').forEach(icon => {
-    icon.addEventListener('mouseenter', () => {
-        icon.style.transform = 'scale(1.2) rotate(5deg)';
-        icon.style.boxShadow = '0 20px 50px rgba(0, 255, 136, 0.3)';
-    });
-
-    icon.addEventListener('mouseleave', () => {
-        icon.style.transform = '';
-        icon.style.boxShadow = '';
-    });
-});
-
-// ========================================
-// PROJECT CARDS TILT EFFECT
-// ========================================
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-    });
-});
-
-console.log('🚀 Portfolio loaded successfully!');
-
-// ========================================
-// MOUSE GLOW EFFECT
-// ========================================
 function initMouseGlow() {
-    const glow = document.createElement('div');
-    glow.className = 'mouse-glow';
-    document.body.appendChild(glow);
-
-    let mouseX = 0, mouseY = 0;
-    let glowX = 0, glowY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-
-    function animate() {
-        glowX += (mouseX - glowX) * 0.1;
-        glowY += (mouseY - glowY) * 0.1;
-        glow.style.left = glowX + 'px';
-        glow.style.top = glowY + 'px';
+    const g = document.createElement('div');
+    g.className = 'mouse-glow';
+    document.body.appendChild(g);
+    let mx = 0, my = 0, gx = 0, gy = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    (function animate() {
+        gx += (mx - gx) * 0.08; gy += (my - gy) * 0.08;
+        g.style.left = gx + 'px'; g.style.top = gy + 'px';
         requestAnimationFrame(animate);
-    }
-    animate();
+    })();
 }
 
-// ========================================
-// PARTICLE EFFECTS
-// ========================================
 function initParticles() {
-    const canvas = document.createElement('canvas');
-    canvas.id = 'particles-canvas';
-    document.body.insertBefore(canvas, document.body.firstChild);
-
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-
-    function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+    const c = document.createElement('canvas');
+    c.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0';
+    document.body.insertBefore(c, document.body.firstChild);
+    const ctx = c.getContext('2d');
+    let ps = [];
+    function resize() { c.width = window.innerWidth; c.height = window.innerHeight; }
+    resize(); window.addEventListener('resize', resize);
+    class P {
+        constructor() { this.reset(); }
+        reset() { this.x = Math.random() * c.width; this.y = Math.random() * c.height; this.s = Math.random() * 1.5 + .5; this.sx = (Math.random() - .5) * .3; this.sy = (Math.random() - .5) * .3; this.o = Math.random() * .4 + .05; }
+        update() { this.x += this.sx; this.y += this.sy; if (this.x < 0 || this.x > c.width || this.y < 0 || this.y > c.height) this.reset(); }
+        draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.s, 0, Math.PI * 2); ctx.fillStyle = `rgba(0,255,136,${this.o})`; ctx.fill(); }
     }
-    resize();
-    window.addEventListener('resize', resize);
-
-    class Particle {
-        constructor() {
-            this.reset();
-        }
-        reset() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2 + 0.5;
-            this.speedX = (Math.random() - 0.5) * 0.5;
-            this.speedY = (Math.random() - 0.5) * 0.5;
-            this.opacity = Math.random() * 0.5 + 0.1;
-        }
-        update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
-                this.reset();
-            }
-        }
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(0, 255, 136, ${this.opacity})`;
-            ctx.fill();
-        }
-    }
-
-    for (let i = 0; i < 50; i++) {
-        particles.push(new Particle());
-    }
-
-    function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-            p.update();
-            p.draw();
-        });
-        requestAnimationFrame(animateParticles);
-    }
-    animateParticles();
+    for (let i = 0; i < 40; i++) ps.push(new P());
+    (function anim() { ctx.clearRect(0, 0, c.width, c.height); ps.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(anim); })();
 }
 
-// ========================================
-// HERO 3D TILT EFFECT
-// ========================================
 function initHeroTilt() {
-    const visual = document.querySelector('.visual-container');
-    if (!visual) return;
-
-    document.querySelector('.hero').addEventListener('mousemove', (e) => {
-        const rect = visual.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-
-        const rotateY = (e.clientX - centerX) / 30;
-        const rotateX = (centerY - e.clientY) / 30;
-
-        visual.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    const v = document.querySelector('.visual-container');
+    const h = document.querySelector('.hero');
+    if (!v || !h) return;
+    h.addEventListener('mousemove', e => {
+        const r = v.getBoundingClientRect();
+        const ry = (e.clientX - r.left - r.width / 2) / 30;
+        const rx = (r.top + r.height / 2 - e.clientY) / 30;
+        v.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg)`;
     });
-
-    document.querySelector('.hero').addEventListener('mouseleave', () => {
-        visual.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-    });
+    h.addEventListener('mouseleave', () => { v.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)'; });
 }
+
+function initStatCounters() {
+    const stats = document.querySelectorAll('.stat-number[data-target]');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                const el = e.target;
+                const target = parseFloat(el.dataset.target);
+                const isFloat = target % 1 !== 0;
+                const duration = 1500;
+                const start = performance.now();
+                function update(now) {
+                    const p = Math.min((now - start) / duration, 1);
+                    const ease = 1 - Math.pow(1 - p, 3);
+                    el.textContent = isFloat ? (target * ease).toFixed(2) : Math.floor(target * ease);
+                    if (p < 1) requestAnimationFrame(update);
+                    else el.textContent = isFloat ? target.toFixed(2) : target;
+                }
+                requestAnimationFrame(update);
+                observer.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+    stats.forEach(s => observer.observe(s));
+}
+
+// Project card tilt
+document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const rx = (e.clientY - r.top - r.height / 2) / 25;
+        const ry = (r.left + r.width / 2 - e.clientX) / 25;
+        card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${-ry}deg) translateY(-8px)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+});
+
+console.log('🧠 Portfolio loaded — Rudra Sheth');

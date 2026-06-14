@@ -4,22 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rudra Sheth | Full-Stack Developer</title>
+    <title>Rudra Sheth | AI/ML Engineer & Full-Stack Developer</title>
     <meta name="description"
-        content="Rudra Sheth - Full-Stack Developer specializing in MERN Stack, React, Node.js, and AI-powered applications.">
+        content="Rudra Sheth - AI/ML Engineer specializing in Generative AI, LLMs, NLP, Deep Learning, and full-stack development with Python, TypeScript, and cloud technologies.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div class="bg-grid"></div>
     <div class="bg-gradient"></div>
+    <div class="noise-overlay"></div>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -28,11 +29,12 @@
             <ul class="nav-links">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <a href="#contact" class="nav-cta"><span>Connect with me</span></a>
+            <a href="#contact" class="nav-cta"><span>Let's Connect</span></a>
             <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
         </div>
     </nav>
@@ -45,19 +47,19 @@
                 <p class="hero-greeting">Hello, I'm</p>
                 <h1 class="hero-title"><span class="title-line">Rudra</span><span
                         class="title-line gradient-text">Sheth</span></h1>
-                <p class="hero-subtitle">Full-Stack Developer & Problem Solver</p>
-                <p class="hero-description">Motivated IT student with a strong foundation in full-stack development. I
-                    build responsive, user-focused applications with clean code.</p>
+                <p class="hero-subtitle">AI/ML Engineer & Full-Stack Developer</p>
+                <p class="hero-description">Engineering intelligent systems with Generative AI, LLMs, and deep learning.
+                    Building production-grade ML pipelines and scalable full-stack applications.</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary"><span>View My Work</span></a>
                     <a href="#contact" class="btn btn-secondary"><span>Get In Touch</span></a>
                 </div>
                 <div class="hero-stats">
-                    <div class="stat"><span class="stat-number">8.45</span><span class="stat-label">SGPA</span></div>
+                    <div class="stat"><span class="stat-number" data-target="8.45">0</span><span class="stat-label">CGPA</span></div>
                     <div class="stat-divider"></div>
-                    <div class="stat"><span class="stat-number">3+</span><span class="stat-label">Projects</span></div>
+                    <div class="stat"><span class="stat-number" data-target="6">0</span><span class="stat-label">Projects</span></div>
                     <div class="stat-divider"></div>
-                    <div class="stat"><span class="stat-number">MERN</span><span class="stat-label">Stack</span></div>
+                    <div class="stat"><span class="stat-number">OCI</span><span class="stat-label">Certified</span></div>
                 </div>
             </div>
             <div class="hero-visual">
@@ -73,32 +75,33 @@
                                 <span class="dot yellow"></span>
                                 <span class="dot green"></span>
                             </div>
-                            <span class="terminal-title">developer.js</span>
+                            <span class="terminal-title">ai_engineer.py</span>
                         </div>
                         <div class="terminal-body">
-                            <div class="code-line"><span class="code-keyword">const</span> <span
-                                    class="code-var">developer</span> = {</div>
-                            <div class="code-line indent"><span class="code-prop">name</span>: <span
-                                    class="code-string">"Rudra Sheth"</span>,</div>
-                            <div class="code-line indent"><span class="code-prop">role</span>: <span
-                                    class="code-string">"Full-Stack Dev"</span>,</div>
-                            <div class="code-line indent"><span class="code-prop">skills</span>: [<span
-                                    class="code-string">"React"</span>, <span class="code-string">"Node"</span>],</div>
-                            <div class="code-line indent"><span class="code-prop">passion</span>: <span
-                                    class="code-keyword">true</span>,</div>
-                            <div class="code-line indent"><span class="code-prop">coffee</span>: <span
-                                    class="code-number">∞</span></div>
-                            <div class="code-line">};</div>
+                            <div class="code-line"><span class="code-keyword">class</span> <span
+                                    class="code-var">AIEngineer</span>:</div>
+                            <div class="code-line indent"><span class="code-keyword">def</span> <span
+                                    class="code-var">__init__</span>(<span class="code-prop">self</span>):</div>
+                            <div class="code-line indent2"><span class="code-prop">self</span>.name = <span
+                                    class="code-string">"Rudra Sheth"</span></div>
+                            <div class="code-line indent2"><span class="code-prop">self</span>.stack = [</div>
+                            <div class="code-line indent3"><span class="code-string">"GenAI"</span>, <span
+                                    class="code-string">"LLMs"</span>,</div>
+                            <div class="code-line indent3"><span class="code-string">"PyTorch"</span>, <span
+                                    class="code-string">"LangChain"</span></div>
+                            <div class="code-line indent2">]</div>
+                            <div class="code-line indent2"><span class="code-prop">self</span>.building = <span
+                                    class="code-keyword">True</span></div>
                             <div class="code-line typing-line"><span class="cursor">|</span></div>
                         </div>
                     </div>
                     <div class="floating-icons">
-                        <div class="float-icon icon-react" data-tooltip="React">⚛️</div>
-                        <div class="float-icon icon-node" data-tooltip="Node.js">🟢</div>
-                        <div class="float-icon icon-js" data-tooltip="JavaScript">📜</div>
-                        <div class="float-icon icon-python" data-tooltip="Python">🐍</div>
-                        <div class="float-icon icon-figma" data-tooltip="Figma">🎨</div>
-                        <div class="float-icon icon-mongo" data-tooltip="MongoDB">🍃</div>
+                        <div class="float-icon icon-1" data-tooltip="Python">🐍</div>
+                        <div class="float-icon icon-2" data-tooltip="PyTorch">🔥</div>
+                        <div class="float-icon icon-3" data-tooltip="AI/ML">🧠</div>
+                        <div class="float-icon icon-4" data-tooltip="Docker">🐳</div>
+                        <div class="float-icon icon-5" data-tooltip="Cloud">☁️</div>
+                        <div class="float-icon icon-6" data-tooltip="Database">🗄️</div>
                     </div>
                 </div>
             </div>
@@ -109,48 +112,102 @@
     <section class="about" id="about">
         <div class="section-container">
             <div class="section-header"><span class="section-tag">About Me</span>
-                <h2 class="section-title">Passionate Developer</h2>
+                <h2 class="section-title">AI/ML Engineer & Builder</h2>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p class="about-description">I'm a <span class="highlight">motivated IT student</span> at SVKM
-                        Dwarkadas J Sanghvi College of Engineering, Mumbai, with a strong foundation in full-stack
-                        development. Currently maintaining an <span class="highlight">SGPA of 8.45</span>.</p>
-                    <p class="about-description">Known for clean code, quick learning, and solid problem-solving
-                        abilities. I specialize in developing scalable features and delivering smooth end-to-end user
-                        experiences.</p>
+                    <p class="about-description">I'm an <span class="highlight">AI/ML-focused engineer</span> at SVKM's
+                        Dwarkadas J. Sanghvi College of Engineering, Mumbai, pursuing a B.E. in Information Technology with a
+                        <span class="highlight">CGPA of 8.45/10.0</span>.</p>
+                    <p class="about-description">I specialize in building production-grade systems with <span
+                            class="highlight">Generative AI, LLMs, and deep learning</span> — from automated ML pipelines
+                        and NLP engines to real-time trading platforms and supply chain intelligence tools.</p>
                     <div class="about-info">
                         <div class="info-item"><span class="info-icon">🎓</span>
                             <div class="info-content"><span class="info-label">Education</span><span
-                                    class="info-value">B.E. IT (Expected 2027)</span></div>
+                                    class="info-value">B.E. Information Technology (2023–2027)</span></div>
                         </div>
                         <div class="info-item"><span class="info-icon">📍</span>
                             <div class="info-content"><span class="info-label">Location</span><span
                                     class="info-value">Mumbai, India</span></div>
                         </div>
+                        <div class="info-item"><span class="info-icon">🏅</span>
+                            <div class="info-content"><span class="info-label">Certification</span><span
+                                    class="info-value">Oracle Cloud Infrastructure 2025 GenAI Professional</span></div>
+                        </div>
                     </div>
                 </div>
-                <div class="skills-grid">
-                    <h3 class="skills-title">My Tech Stack</h3>
-                    <div class="skills-container">
-                        <div class="skill-category">
-                            <h4>Languages</h4>
-                            <div class="skill-tags"><span class="skill-tag">Python</span><span
-                                    class="skill-tag">JavaScript</span><span class="skill-tag">HTML/CSS</span><span
-                                    class="skill-tag">SQL</span><span class="skill-tag">C++</span></div>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Frameworks</h4>
-                            <div class="skill-tags"><span class="skill-tag">React.js</span><span
-                                    class="skill-tag">Node.js</span><span class="skill-tag">Express.js</span><span
-                                    class="skill-tag">MongoDB</span></div>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Tools</h4>
-                            <div class="skill-tags"><span class="skill-tag">Figma</span><span
-                                    class="skill-tag">GitHub</span><span class="skill-tag">Notion</span><span
-                                    class="skill-tag">Jira</span></div>
-                        </div>
+                <div class="about-education">
+                    <div class="edu-card">
+                        <div class="edu-icon">🏛️</div>
+                        <h4>SVKM's DJSCE</h4>
+                        <p class="edu-degree">B.E. Information Technology</p>
+                        <p class="edu-detail">CGPA: 8.45/10.0</p>
+                        <span class="edu-date">Aug 2023 — May 2027</span>
+                    </div>
+                    <div class="edu-card">
+                        <div class="edu-icon">📚</div>
+                        <h4>Sathaye College</h4>
+                        <p class="edu-degree">HSC, Maharashtra State Board</p>
+                        <p class="edu-detail">Percentage: 72.17%</p>
+                        <span class="edu-date">Jun 2021 — Mar 2023</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <div class="section-container">
+            <div class="section-header"><span class="section-tag">Technical Arsenal</span>
+                <h2 class="section-title">Skills & Technologies</h2>
+            </div>
+            <div class="skills-mega-grid">
+                <div class="skill-card-modern" data-category="ai">
+                    <div class="skill-card-glow"></div>
+                    <div class="skill-card-icon">🤖</div>
+                    <h3>AI/ML & Data Science</h3>
+                    <div class="skill-pills">
+                        <span class="pill">Generative AI</span><span class="pill">LLMs</span>
+                        <span class="pill">NLP</span><span class="pill">Machine Learning</span>
+                        <span class="pill">Deep Learning</span><span class="pill">Computer Vision</span>
+                    </div>
+                </div>
+                <div class="skill-card-modern" data-category="frameworks">
+                    <div class="skill-card-glow"></div>
+                    <div class="skill-card-icon">⚙️</div>
+                    <h3>Frameworks & APIs</h3>
+                    <div class="skill-pills">
+                        <span class="pill">TensorFlow</span><span class="pill">PyTorch</span>
+                        <span class="pill">Hugging Face</span><span class="pill">LangChain</span>
+                        <span class="pill">LlamaIndex</span><span class="pill">OpenAI API</span>
+                        <span class="pill">Gemini API</span><span class="pill">Claude API</span>
+                        <span class="pill">Scikit-Learn</span><span class="pill">Pandas</span>
+                        <span class="pill">NumPy</span>
+                    </div>
+                </div>
+                <div class="skill-card-modern" data-category="languages">
+                    <div class="skill-card-glow"></div>
+                    <div class="skill-card-icon">💻</div>
+                    <h3>Languages</h3>
+                    <div class="skill-pills">
+                        <span class="pill">Python</span><span class="pill">TypeScript</span>
+                        <span class="pill">JavaScript</span><span class="pill">SQL</span>
+                        <span class="pill">C++</span><span class="pill">Java</span>
+                        <span class="pill">Rust</span>
+                    </div>
+                </div>
+                <div class="skill-card-modern" data-category="devops">
+                    <div class="skill-card-glow"></div>
+                    <div class="skill-card-icon">🚀</div>
+                    <h3>Cloud, DevOps & Databases</h3>
+                    <div class="skill-pills">
+                        <span class="pill">Docker</span><span class="pill">AWS (EC2)</span>
+                        <span class="pill">GCP</span><span class="pill">Git/GitHub</span>
+                        <span class="pill">MySQL</span><span class="pill">SQLite</span>
+                        <span class="pill">MongoDB</span><span class="pill">Neo4j</span>
+                        <span class="pill">CI/CD</span>
                     </div>
                 </div>
             </div>
@@ -164,59 +221,127 @@
                 <h2 class="section-title">Featured Projects</h2>
             </div>
             <div class="projects-grid">
-                <article class="project-card featured">
-                    <div class="project-image inventory-bg"><span class="project-icon">📦</span></div>
+                <!-- Project 1: Network Security -->
+                <article class="project-card" id="project-netsec">
+                    <div class="project-image netsec-bg">
+                        <span class="project-icon">🛡️</span>
+                        <div class="project-image-overlay"></div>
+                    </div>
                     <div class="project-content">
                         <div class="project-tags">
-                            <span class="tag">Machine Learning</span>
-                            <span class="tag">Analytics</span>
-                            <span class="tag">React</span>
+                            <span class="tag">Python</span><span class="tag">Scikit-Learn</span>
+                            <span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">AWS EC2</span>
                         </div>
-                        <h3 class="project-title">Inventory Manager</h3>
-                        <p class="project-description">
-                            Intelligent inventory management system featuring a real-time predictive analytics
-                            dashboard.
-                            Implemented client-side machine learning for product image classification, demand
-                            forecasting,
-                            and automated ABC analysis.
-                        </p>
+                        <h3 class="project-title">Network Security ML Pipeline</h3>
+                        <p class="project-description">End-to-end ML pipeline for intelligent classification and anomaly
+                            detection of network data. Includes ETL orchestration, automated CI/CD with Docker, and
+                            high-performance REST APIs on AWS EC2.</p>
+                        <ul class="project-highlights">
+                            <li>AI/ML augmented automation for network profiling</li>
+                            <li>Data lineage mapping with validation checkpoints</li>
+                            <li>Containerized FastAPI deployment to AWS EC2</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Project 2: StockMaster AI -->
+                <article class="project-card" id="project-stockmaster">
+                    <div class="project-image stock-bg">
+                        <span class="project-icon">📈</span>
+                        <div class="project-image-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Python</span><span class="tag">Next.js</span>
+                            <span class="tag">Telegram Bot API</span><span class="tag">MongoDB</span>
+                        </div>
+                        <h3 class="project-title">StockMaster AI: Market Risk & Alerts</h3>
+                        <p class="project-description">Event-driven notification microservice with real-time commodity
+                            price feeds, volatility alerts for >2% session moves, and a Mark-to-Market P&L simulator.</p>
+                        <ul class="project-highlights">
+                            <li>Telegram Bot API for autonomous risk reports</li>
+                            <li>Alpha Vantage integration with server-side caching</li>
+                            <li>Chart.js equity curve visualization</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Project 3: AlphaPulse -->
+                <article class="project-card" id="project-alphapulse">
+                    <div class="project-image alpha-bg">
+                        <span class="project-icon">📊</span>
+                        <div class="project-image-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Python</span><span class="tag">SQL</span>
+                            <span class="tag">Power BI</span><span class="tag">DAX</span>
+                        </div>
+                        <h3 class="project-title">AlphaPulse: Quant Trading Dashboard</h3>
+                        <p class="project-description">Interactive Power BI dashboard for real-time asset allocation,
+                            risk-adjusted returns, and market volatility analytics for algorithmic trading strategies.</p>
+                        <ul class="project-highlights">
+                            <li>Automated ETL pipelines with Python & SQL</li>
+                            <li>Centralized data warehouse for financial datasets</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Project 4: FlowScope -->
+                <article class="project-card" id="project-flowscope">
+                    <div class="project-image flow-bg">
+                        <span class="project-icon">🔗</span>
+                        <div class="project-image-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Neo4j</span><span class="tag">Python</span>
+                            <span class="tag">API Integration</span>
+                        </div>
+                        <h3 class="project-title">FlowScope: Supply Chain Intelligence</h3>
+                        <p class="project-description">Enterprise-grade platform visualizing multi-tier procurement
+                            networks using graph-based relationship mapping with BFS and A* pathfinding algorithms.</p>
+                        <ul class="project-highlights">
+                            <li>Graph-based logistics data visualization</li>
+                            <li>Bottleneck detection & route optimization</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Project 5: Inventory Manager -->
+                <article class="project-card" id="project-inventory">
+                    <div class="project-image inventory-bg">
+                        <span class="project-icon">📦</span>
+                        <div class="project-image-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Machine Learning</span><span class="tag">React</span>
+                            <span class="tag">Analytics</span>
+                        </div>
+                        <h3 class="project-title">Intelligent Inventory Manager</h3>
+                        <p class="project-description">Real-time predictive analytics dashboard with client-side ML
+                            for product image classification, demand forecasting, and automated ABC analysis.</p>
                         <a href="https://inventorymanagerrudra2026.vercel.app/" target="_blank"
                             class="project-link">Visit Site →</a>
                     </div>
                 </article>
-                <article class="project-card featured">
-                    <div class="project-image medilingo-bg"><span class="project-icon">🏥</span></div>
-                    <div class="project-content">
-                        <div class="project-tags"><span class="tag">MERN Stack</span><span class="tag">OpenAI API</span>
-                        </div>
-                        <h3 class="project-title">MediLingo</h3>
-                        <p class="project-description">AI Healthcare Platform - Built an AI medical assistant using
-                            curated medicine datasets, fuzzy search for emergency services, and secure authentication.
-                        </p>
-                        <a href="https://medilingoath.vercel.app/" target="_blank" class="project-link">Visit Site →</a>
+
+                <!-- Project 6: MediLingo -->
+                <article class="project-card" id="project-medilingo">
+                    <div class="project-image medilingo-bg">
+                        <span class="project-icon">🏥</span>
+                        <div class="project-image-overlay"></div>
                     </div>
-                </article>
-                <article class="project-card">
-                    <div class="project-image insureos-bg"><span class="project-icon">📊</span></div>
                     <div class="project-content">
-                        <div class="project-tags"><span class="tag">React</span><span class="tag">Full-Stack</span>
+                        <div class="project-tags">
+                            <span class="tag">MERN Stack</span><span class="tag">OpenAI API</span>
                         </div>
-                        <h3 class="project-title">InsureOS</h3>
-                        <p class="project-description">Agency Operating System - A comprehensive platform for insurance
-                            agencies to streamline operations.</p>
-                        <a href="https://insureos-wheat.vercel.app/" target="_blank" class="project-link">Visit Site
-                            →</a>
-                    </div>
-                </article>
-                <article class="project-card">
-                    <div class="project-image zephyr-bg"><span class="project-icon">🥤</span></div>
-                    <div class="project-content">
-                        <div class="project-tags"><span class="tag">React</span><span class="tag">E-Commerce</span>
-                        </div>
-                        <h3 class="project-title">Zephyr Store</h3>
-                        <p class="project-description">Premium Craft Beverages - Elegant e-commerce platform with
-                            integrated payment processing.</p>
-                        <a href="https://zephyr-store.vercel.app/" target="_blank" class="project-link">Visit Site →</a>
+                        <h3 class="project-title">MediLingo: AI Healthcare Platform</h3>
+                        <p class="project-description">AI medical assistant using curated medicine datasets, fuzzy
+                            search for emergency services, and secure authentication.</p>
+                        <a href="https://medilingoath.vercel.app/" target="_blank"
+                            class="project-link">Visit Site →</a>
                     </div>
                 </article>
             </div>
@@ -227,26 +352,61 @@
     <section class="experience" id="experience">
         <div class="section-container">
             <div class="section-header"><span class="section-tag">My Journey</span>
-                <h2 class="section-title">Experience</h2>
+                <h2 class="section-title">Professional Experience</h2>
             </div>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-marker">
                         <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
                     </div>
                     <div class="timeline-content">
-                        <h3 class="timeline-title">Python Developer</h3>
-                        <span class="timeline-company">Fincept Terminal</span>
-                        <span class="timeline-date">Oct 2025 – Nov 2025</span>
+                        <div class="timeline-header-row">
+                            <div>
+                                <h3 class="timeline-title">Python Developer Intern</h3>
+                                <span class="timeline-company">Fincept Terminal</span>
+                            </div>
+                            <div class="timeline-meta">
+                                <span class="timeline-location">Remote</span>
+                                <span class="timeline-date">Oct 2025 — Nov 2025</span>
+                            </div>
+                        </div>
                         <ul class="timeline-points">
-                            <li>Engineered a deterministic, rule-based sentiment analysis engine using TF-IDF and
-                                Lexicon Matching.</li>
-                            <li>Developed automated API pipelines for real-time news ingestion with Jaccard Similarity
-                                for duplicate detection.</li>
+                            <li>Engineered a rule-based sentiment analysis engine using TF-IDF for automated financial
+                                keyword extraction.</li>
+                            <li>Developed automated API pipelines for real-time news ingestion from multiple financial
+                                data sources.</li>
+                            <li>Implemented Jaccard Similarity algorithms to detect and filter duplicate stories in
+                                intelligence feeds.</li>
+                            <li>Collaborated with senior teams to transform raw financial data into structured, actionable
+                                insights.</li>
                         </ul>
-                        <div class="timeline-tags"><span class="tag">Python</span><span class="tag">TF-IDF</span><span
-                                class="tag">NLP</span></div>
+                        <div class="timeline-tags">
+                            <span class="tag">Python</span><span class="tag">TF-IDF</span>
+                            <span class="tag">NLP</span><span class="tag">API Pipelines</span>
+                            <span class="tag">Data Analysis</span>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications" id="certifications">
+        <div class="section-container">
+            <div class="section-header"><span class="section-tag">Credentials</span>
+                <h2 class="section-title">Certifications</h2>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-badge">🏆</div>
+                    <div class="cert-info">
+                        <h3>Oracle Cloud Infrastructure 2025</h3>
+                        <p>Generative AI Professional</p>
+                        <span class="cert-issuer">Oracle</span>
+                    </div>
+                    <div class="cert-verified">✓ Verified</div>
                 </div>
             </div>
         </div>
@@ -256,22 +416,38 @@
     <section class="contact" id="contact">
         <div class="section-container">
             <div class="section-header"><span class="section-tag">Get In Touch</span>
-                <h2 class="section-title">Let's Work Together</h2>
+                <h2 class="section-title">Let's Build Together</h2>
+                <p class="section-subtitle">I'm always open to discussing new projects, creative ideas, or
+                    opportunities to be part of your vision.</p>
             </div>
             <div class="contact-cards">
+                <a href="mailto:rudrasheth2201@gmail.com" class="contact-card email" id="contact-email">
+                    <div class="card-icon">✉️</div>
+                    <div class="card-content">
+                        <h3>Email</h3>
+                        <p>rudrasheth2201@gmail.com</p>
+                    </div>
+                </a>
+                <a href="tel:+919152362915" class="contact-card phone" id="contact-phone">
+                    <div class="card-icon">📱</div>
+                    <div class="card-content">
+                        <h3>Phone</h3>
+                        <p>+91 9152362915</p>
+                    </div>
+                </a>
                 <a href="https://www.linkedin.com/in/rudra-sheth-392295295/" target="_blank"
-                    class="contact-card linkedin">
+                    class="contact-card linkedin" id="contact-linkedin">
                     <div class="card-icon">💼</div>
                     <div class="card-content">
                         <h3>LinkedIn</h3>
                         <p>Connect professionally</p>
                     </div>
                 </a>
-                <a href="https://github.com/rudrasheth" target="_blank" class="contact-card github">
+                <a href="https://github.com/rudrasheth" target="_blank" class="contact-card github" id="contact-github">
                     <div class="card-icon">🐙</div>
                     <div class="card-content">
                         <h3>GitHub</h3>
-                        <p>View my code</p>
+                        <p>View my repositories</p>
                     </div>
                 </a>
             </div>
@@ -281,7 +457,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <p class="footer-text">© 2026 Rudra Sheth. Built with passion.</p>
+            <p class="footer-text">© 2026 Rudra Sheth. Engineered with passion & Python.</p>
         </div>
     </footer>
 
